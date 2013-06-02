@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Astoria</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'> 
+    <%= stylesheet_link_tag    "bootstrap" %>
+  	<%= stylesheet_link_tag    "font-awesome" , :media => "all"%>
+  	<%= stylesheet_link_tag    "jquery.fancybox", :media => "all" %>
+  	<%= stylesheet_link_tag    "jquery.fancybox-thumbs" %>
+
+    <%= stylesheet_link_tag    "animate" %>
+  	<%= stylesheet_link_tag    "isotope" %>
+  	<%= stylesheet_link_tag    "style" %>
+  	<%= stylesheet_link_tag    "style-responsive" %>
+
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= javascript_include_tag "application" %>
+  	<%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
