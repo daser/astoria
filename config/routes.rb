@@ -1,5 +1,29 @@
 Astoria::Application.routes.draw do
-root :to => "home#index"
+  
+  root :to => "home#index"
+  match "/login" => "home#login"
+  match "/signup" => "home#signup"
+  match "/admin" => "admin#home"
+  match "/grantaccess" => "admin#grantaccess"
+  match "/confirm" => "admin#confirm"
+  match "/approve/:id" => "admin#approve"
+  match "/disapprove/:id" => "admin#disapprove"
+  match "/grant/:id" => "admin#grant"
+  match "/confirmuser/:id" => "admin#confirmuser"
+  match "/confirm/:token/activation" => "home#activate"
+  match "/signin" =>"home#signin"
+  match "/home" =>"home#dashboard"
+  match "/password-reset" => "home#passwordreset", :as => "password_reset"
+  match "/passwordedit/:token" => "home#passresedit"
+
+
+
+
+
+
+
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

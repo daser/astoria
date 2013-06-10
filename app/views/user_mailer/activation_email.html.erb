@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    Welcome to astoria.com.ng, <%= @user.fname %></h1>
+    <p>
+    Thank you for registering at astoria.com.ng<br />
+    Your account is created and must be activated before you can use it.<br />
+    To activate the account click on the following link or copy-paste it in your browser.<br />
+  </p>
+    <%= @activation_url %>
+<br />
+    After activation you may login to continue using your account<br />
+<br /><br />
+    Thank you.<br />
+    Please do not respond to this message as it is automatically generated and is for information purpose only.<br />
+    <p>
+      To login to the site, just follow this link: <%= @loginurl %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+            background-image:url(<%= asset_path 'sky.jpg' %>);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-color:#F0FCFF;
+    padding:70px 0;
+    background-size:cover;
+
+      }
+      body {
+        padding-top: 0px; 
+      }
+     .formrails {
+	margin:auto;
+      }
+
+      .formrails .container{
+	width:400px;
+	
+	}
+
+      /* The white background content wrapper */
+      .container > .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; 
+        -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+  #conto{
+
+  	min-height: 500px;
+  	height: auto
+  }	
+
+    </style>
+
+<section  id="conto" >
+
+<div class="container">
+	  <% if flash[:alert] %>
+              <div class="alert alert-error">
+                  <a href="#" class="close" data-dismiss="alert">×</a>
+                  <%= flash[:alert] %>
+              </div>
+            <% end %>
+
+
+            <% if flash[:notice] %>
+              <div class="alert alert-success">
+                  <a href="#" class="close" data-dismiss="alert">×</a>
+                  <%= flash[:notice] %>
+              </div>
+            <% end %>
+
+    <div class="content">
+
+<table class="table table-bordered table-hover">
+<thead>
+	<tr>
+		<th>Full name</th>
+		<th>Email</th>
+		<th>Phone number</th>
+		<th>Company</th>
+		<th>Company Email</th>
+		<th>Position</th>
+		<th>Created</th>
+		<th>Approve</th>
+		<th>Disaprove</th>
+		
+
+	</tr>
+</thead>
+<% @users.each do |user| %>
+<tr>
+	<td><%= user.fname + user.lname + user.mname %></td>
+	<td><%= user.email %></td>
+	<td><%= user.mobile %></td>
+	<td><%= user.coyname %></td>
+	<td><%= user.coyemail %></td>
+	<td><%= user.position %></td>
+	<td><%= user.created_at %></td>
+	<td>
+		<%= link_to "Aprove", {:controller => "admin", :action => "approve", :id => user.id},:class=>"btn btn-success" %>
+	</td>
+	<td><%= link_to "Disaprove", {:controller => "admin", :action => "disapprove", :id => user.id},:class=>"btn btn-danger" %></td>
+		
+
+</tr>
+
+<% end %>
+</table>
+</div></div>
+</section>
+

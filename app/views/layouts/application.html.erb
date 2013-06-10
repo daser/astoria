@@ -18,8 +18,218 @@
   	<%= csrf_meta_tags %>
 </head>
 <body>
+      <div class="navbar-wrapper" >
+            <div class="navbar navbar-fixed-top" id="navigation">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                          <%= link_to(image_tag("logo.png", :id=>"logokhan", :width=>"150"),"/", :class => 'brand') %>
+
+                        <div class="nav-collapse collapse">
+                            <ul class="nav pull-right">
+
+                                <li class="active">
+                                   <%= 
+                                   if current_page?(url_for(:controller => 'home', :action => 'index')) 
+                                    link_to "Home", "#top" 
+                                    else
+                                       link_to "Home", "/#top" 
+                                   end
+                                   %> 
+
+
+
+                                </li>
+                                <li class="">
+                                   <%= 
+                                   if current_page?(url_for(:controller => 'home', :action => 'index')) 
+                                    link_to "Features", "#features" 
+                                    else
+                                       link_to "Features", "/#features" 
+                                   end
+
+                                    
+                                   %> 
+                                </li>
+                                <li class="">
+                                    <%= 
+                                   if current_page?(url_for(:controller => 'home', :action => 'index')) 
+                                    link_to "Services", "#support" 
+                                    else
+                                      link_to "Services", "/#support" 
+                                   end
+                                   %> 
+
+                                </li>
+                                <li class="">
+                                    <%= 
+                                   if current_page?(url_for(:controller => 'home', :action => 'index')) 
+                                    link_to "Testimonials", "#testimonials" 
+                                    else
+                                      link_to "Testimonials", "/#testimonials" 
+                                   end
+                                   %> 
+                                </li>
+
+                                <li class="">
+                                    <%= 
+                                   if current_page?(url_for(:controller => 'home', :action => 'index')) 
+                                    link_to "Contact", "#contact" 
+                                    else
+                                      link_to "Contact", "/#contact" 
+                                   end
+                                   %> 
+                                </li>
+                                <li class="">
+                                    <%= link_to "Sign Up", "/signup" %>
+                                </li>
+
+                                <li class="">
+                                    <%= link_to "Sign In", "/login" %>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div id="wrap">
 
 <%= yield %>
+
+            <!--################ BOTTOM SECTION START ################-->
+
+            <section id="bottom" class="paddingbot20">
+
+                <div class="row center">
+
+                    <h2>as seen on the</h2>
+                </div>
+                <div class="container">
+                    <div class="row center">
+                        <div class="as-seen">
+                            <div class="span2">
+                                <%= image_tag("client-1.png") %>
+                            </div>
+                            <div class="span2">
+                              <%= image_tag("client-2.png") %>
+                            </div>
+                            <div class="span2">
+                              <%= image_tag("client-3.png") %>
+                            </div>
+                            <div class="span2">
+                              <%= image_tag("client-4.png") %>
+                            </div>
+                            <div class="span2">
+                              <%= image_tag("client-5.png") %>
+                            </div>
+                            <div class="span2">
+                              <%= image_tag("client-6.png") %>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </section>
+
+            <!--################ BOTTOM SECTION END ################-->
+
+
+        </div>
+
+        <!--################ PUSH WILL KEEP THE FOOTER AT BOTTOM IF YOU WANT TO CREATE OTHER PAGES ################-->
+
+        <div id="push"></div>
+
+
+        <!--################ FOOTER START ################-->
+
+        <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="span4">
+                        <!--<h2>about us...</h2>-->
+                        <%= image_tag("logo.png") %>
+
+                        <!--<p><br /Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.</p>-->
+                        <p><br />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.</p>
+                        <p class="copyright">
+                            © 2013 Purity Bootstrap Template
+                        </p>
+                    </div>
+                    <div class="span2">
+                        <h2>links </h2>
+                        <ul class="unstyled footer-links">
+                            <li><a href="#" class="flink">About Us</a></li>
+                            <li><a href="#" class="flink">The Team</a></li>
+                            <li><a href="#" class="flink">Blog</a></li>
+                            <li><a href="#" class="flink">Contact</a></li>
+                            <li><a href="#" class="flink">Privacy Policy</a></li>
+                            <li><a href="#" class="flink">Terms of Use</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span3">
+                        <h2>subscribe </h2>
+
+                        <a href="#" class="social-network sn2 behance"></a>
+                        <a href="#" class="social-network sn2 facebook"></a>
+                        <a href="#" class="social-network sn2 pinterest"></a>
+                        <a href="#" class="social-network sn2 flickr"></a>
+                        <a href="#" class="social-network sn2 dribbble"></a>
+                        <a href="#" class="social-network sn2 lastfm"></a>
+                        <a href="#" class="social-network sn2 forrst"></a>
+                        <a href="#" class="social-network sn2 xing"></a>      
+
+
+                    </div>
+
+                    <div class="span3">
+                        <h2 class="center"><i class="icon-twitter"></i></h2>
+                        <ul id="twitter" class="unstyled">
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </footer>
+
+   <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "modernizr.js" %>
+    <%= javascript_include_tag "bootstrap.js" %>
+    <%= javascript_include_tag "jquery.fitvids.js" %>
+
+   <%= javascript_include_tag "jquery.easing.1.3.js" %>
+    <%= javascript_include_tag "twitter.js" %>
+    <%= javascript_include_tag "jquery.fancybox.pack.js" %>
+    <%= javascript_include_tag "jquery.fancybox-thumbs.js?v=1.0.2" %>
+
+   <%= javascript_include_tag "jquery.fancybox-media.js?v=1.0.0" %>
+    <%= javascript_include_tag "stellar.js" %>
+    <%= javascript_include_tag "nicescroll.min.js" %>
+    <%= javascript_include_tag "jquery.isotope.min.js" %>
+
+   <%= javascript_include_tag "custom.js" %>
+    <%= javascript_include_tag "custom-home.js" %>
+    <%= javascript_include_tag "portfolio.js" %>
+    <%= javascript_include_tag "jquery.flexslider.js" %>
+    <%= javascript_include_tag "retina.js" %>
+
+
+
 
 </body>
 </html>
