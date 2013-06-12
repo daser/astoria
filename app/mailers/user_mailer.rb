@@ -27,6 +27,18 @@ class UserMailer < ActionMailer::Base
   end
 
 
+  def send_invitation(inviteefname,inviteelname,name,email)
+    @inviteelname = inviteelname
+    @inviteefname = inviteefname
+    @name = name
+    @signupurl = 'astoria.com.ng/signup'
+    mail(:to => email,:subject=>"Invitation to join Astoria") do |format|
+      format.html { render 'send_invitation' }
+    end
+  end
+
+
+
   def activate()
   	
   end
@@ -40,6 +52,12 @@ class UserMailer < ActionMailer::Base
   end
 
   def successful_registration(user)
+    @user = user
+    @fname = user.fname
+    mail(:to => user.email,:subject=>"Registration Successful")
+  end
+
+  def successfulreg_invite(user)
     @user = user
     @fname = user.fname
     mail(:to => user.email,:subject=>"Registration Successful")

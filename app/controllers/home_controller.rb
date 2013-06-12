@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+    before_filter :save_login_state!, :only =>[:login, :signup]
+
   def index
   	@user = User.new(params[:user])
   	if request.post?
@@ -55,6 +57,12 @@ def activate
           @user.activation_token = nil
           if @user.save
             UserMailer.successful_registration(@user).deliver
+            invit = Invitation.find(:all, :conditions=>{:email=>@user.email})
+
+            if invit
+               invitt = invit.update_all({:invited => @user.id})
+             end
+
             redirect_to root_url, :notice => "Account Activated! You can now login"
 
           #redirect_to profile_path(@get_user.username)
@@ -144,8 +152,61 @@ def signin
   end
 end
 
+ def logout
+    session[:user_id] = nil
+    redirect_to root_url, :notice => "Logged out!"
+  end
+
 def dashboard
   
 end
+
+def invitefriend
+  @invite = Invitation.new(params[:invitation])
+    if request.post?
+      if User.find_by_email(@invite.email)
+          flash[:alert] = "User already an astoria member"
+       else 
+        myid = session[:user_id]
+        @invite.invitee = myid
+
+        if checkusertoinvited(myid,@invite.email)
+            if @invite.save
+            #UserMailer.new_registration(@invite).deliver
+            invitee = User.find_by_id(myid)
+            inviteefname = invitee.fname
+            inviteelname = invitee.lname
+            UserMailer.send_invitation(inviteefname,inviteelname,@invite.name,@invite.email).deliver
+
+            flash[:notice] = "User already contacted"
+            else
+            flash[:alert] = "Form is invalid"
+            end
+        else
+            flash[:alert] = "You have already sent invitation to this user"
+        end
+      end
+
+    end
+
+end
+
+
+def checkusertoinvited(invitee,email)
+#invite = Invitation.find(:all, :conditions=>['invitee=? AND email=?',invitee,email])
+#invite = Invitation.where("invitee = ? AND email = ?",1,email)
+#Client.where("orders_count = ? AND locked = ?", params[:orders], false)
+invite = Invitation.find_by_email_and_invitee(email,invitee)
+#invite = Invitation.find(:all, :conditions=>"invitee = 1 AND invited=3")
+
+# logger.info("Something like this " + invitee)
+  #logger.info(invite)
+  if invite
+    return false
+  else
+    return true
+  end
+end
+
 
 end

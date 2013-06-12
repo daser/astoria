@@ -1,0 +1,118 @@
+<style type="text/css">
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+      body {
+        padding-top: 0px; 
+      }
+     .formrails {
+  margin:auto;
+  width:900px;
+      }
+
+      .formrails .container{
+  width:900px;
+  
+  }
+
+      /* The white background content wrapper */
+      .container > .content {
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 -20px; 
+        -webkit-border-radius: 10px 10px 10px 10px;
+           -moz-border-radius: 10px 10px 10px 10px;
+                border-radius: 10px 10px 10px 10px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+                box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+
+    .login-form {
+    margin-left: 65px;
+    }
+  
+    legend {
+    margin-right: -50px;
+    font-weight: bold;
+      color: #404040;
+    }
+.lightblue {
+       background-color: none;
+      }
+    </style>
+
+
+<section  id="dashboard" >
+
+                <div id="dashboard-banner" data-stellar-background-ratio="0" >
+ <div class="formrails">
+<div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="login-form">
+          <h2>Invite Friends to Astoria
+</h2>
+<hr />
+    <%= form_for :invitation do |f| %>
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="row">
+            <div class="span12 bgcolor">
+
+
+
+            <% if flash[:alert] %>
+              <div class="alert alert-error">
+                  <a href="#" class="close" data-dismiss="alert">×</a>
+                  <%= flash[:alert] %>
+              </div>
+            <% end %>
+
+
+            <% if flash[:notice] %>
+              <div class="alert alert-success">
+                  <a href="#" class="close" data-dismiss="alert">×</a>
+                  <%= flash[:notice] %>
+              </div>
+            <% end %>
+
+
+
+            </div>
+          </div>         
+
+
+          <div class="row-fluid">
+            <div class="span12 bgcolor">
+              <label>Invitation Details</label>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div class="span6 bgcolor">
+            <%= f.text_field :name, :placeholder=>"Name", :class=>"span12 input-mini" %>
+            </div><!--/span-->
+            <div class="span6 bgcolor">
+              <%= f.text_field :email, :placeholder=>"Email", :class=>"span12 input-mini" %>
+                          </div><!--/span-->
+          </div><!--/row-->           
+        
+        </div><!--/span-->
+                      <%= button_tag "Invite to Astoria", :class=>"btn primary" %>
+
+        <div class="span4">
+
+        </div><!--/span-->       
+      </div><!--/row-->
+      <% end %>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> <!-- /container -->
+
+                </div>
+</section>

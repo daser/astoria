@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610053404) do
+ActiveRecord::Schema.define(:version => 20130610120040) do
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "invited",    :default => 0, :null => false
+    t.integer  "invitee"
+    t.string   "email"
+    t.integer  "signupflag", :default => 0, :null => false
+    t.datetime "invitedate"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "fname"

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  invited: 1
+  invitee: 1
+  email: MyString
+  signupflag: 1
+  invitedate: 2013-06-10 11:43:38
+
+two:
+  invited: 1
+  invitee: 1
+  email: MyString
+  signupflag: 1
+  invitedate: 2013-06-10 11:43:38

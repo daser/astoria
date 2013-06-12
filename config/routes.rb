@@ -15,7 +15,8 @@ Astoria::Application.routes.draw do
   match "/home" =>"home#dashboard"
   match "/password-reset" => "home#passwordreset", :as => "password_reset"
   match "/passwordedit/:token" => "home#passresedit"
-
+  match "/logout" =>"home#logout"
+  match "/invitefr" =>"home#invitefriend"
 
 
 
